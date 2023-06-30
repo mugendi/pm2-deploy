@@ -48,3 +48,7 @@ This simple script asks for your server password at the beginning. It then uses 
 1. It is tedious
 2. I wrote this script to automate things at the office. But to also ensure that employees can orchestrate deployments without needing to access or even know the production server passwords. All I/or someone else authorized is enter the password once and that's it. 
 
+## Gotchas!
+
+This script does not has a `--force` flag like you would do with `pm2 deploy production --force` to avoid breaking tour production server. Also it is expected that you will have **pre-commit hooks** to do all the necessary linting and testing. Therefore by the time you run this script you have committed and pushed your changes!
+
