@@ -1,0 +1,53 @@
+#!/usr/bin/expect -f
+
+set timeout 1
+
+# We give a message so the user know our syntax:
+
+
+#set password [gets stdin]
+#log_user 0
+set password $env(PASSPHRASE)
+
+spawn pm2 deploy production
+
+# Hide output
+# https://www.baeldung.com/linux/expect-hide-output
+# https://linuxaria.com/howto/2-practical-examples-of-expect-on-the-linux-cli
+# https://stackoverflow.com/a/1539225/1462634
+
+
+set i 1
+
+# Re enter password multiple times, 50 is more than sufficient
+while {$i<50} {
+
+    # If we find ourselves at the end 
+    expect {
+
+        # If successful, exit
+        "*successfully deployed*" {
+           exit 1 
+        }
+
+        # If password is wrong, exit
+        "*Permission denied*" {
+            puts "\nDeployment Failed! Try again and enter correct password"
+            exit 1 
+        }
+
+        "*push your changes before deploying*" {
+            exit 1
+        }
+
+        # otherwise enter password
+        "*password:*" {
+            send -- "$password\n"
+            incr i
+        }
+    }        
+
+}
+    
+
+

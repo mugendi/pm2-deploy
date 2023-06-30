@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+
+read -sp 'Production Server(s) Password: ' passphrase
+export PASSPHRASE=$passphrase
+
+expect "$(dirname "$0")/production-setup.exp"
+expect "$(dirname "$0")/production-deploy.exp"
