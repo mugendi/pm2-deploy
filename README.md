@@ -7,7 +7,7 @@
 
 # PM2 Deploy with ease!
 
-![](./screenshot.png)
+![](./screenshot-1.png)
 
 If you have used **PM2 Deployment System** then you must know how powerful it is.
 
