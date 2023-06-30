@@ -32,11 +32,17 @@ while {$i<50} {
 
         # If password is wrong, exit
         "*Permission denied*" {
-            puts "\nDeployment Failed! Try again and enter correct password"
+            puts "\nDeployment Failed! Enter correct password & try again!"
             exit 1 
         }
 
         "*push your changes before deploying*" {
+            puts "\nDeployment Failed! Push your changes first!"
+            exit 1
+        }
+
+        "*commit or stash your changes before*" {
+            puts "\nDeployment Failed! Commit your changes first!"
             exit 1
         }
 
