@@ -7,6 +7,8 @@
 
 # PM2 Deploy with ease!
 
+![](./screenshot.png)
+
 If you have used **PM2 Deployment System** then you must know how powerful it is.
 
 However, it can also get cumbersome when you have to enter the "Production server password" a million times!
