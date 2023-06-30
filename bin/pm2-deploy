@@ -1,13 +1,23 @@
 #!/usr/bin/bash
 
+echo
+echo pm2-deply will run:
+
+if [[ "$1" == '--setup' ]]; then
+    echo -e "    pm2 deploy production setup\n    pm2 deploy production"
+else
+    echo -e "    pm2 deploy production"
+fi
+
+echo
 
 # Get User pass
-read -sp 'Production Server(s) Password: ' passphrase
+read -sp 'Enter Production Server(s) Password: ' passphrase
 export PASSPHRASE=$passphrase
 
 # Run Setup
-if [[ "$1" == '--setup' ]] ; then
-  expect "$(dirname "$0")/production-setup.exp"
+if [[ "$1" == '--setup' ]]; then
+    expect "$(dirname "$0")/production-setup.exp"
 fi
 
 expect "$(dirname "$0")/production-deploy.exp"
