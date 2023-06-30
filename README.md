@@ -13,6 +13,11 @@ However, it can also get cumbersome when you have to enter the "Production serve
 
 These set of scripts simplify that process for you.
 
+## Requirements
+
+You will need to install [expect](https://linux.die.net/man/1/expect) and of course [PM2](https://pm2.keymetrics.io/)
+
+
 ## Installation  (Linux)
 
 Simply clone this repo then add the `./bin` directory to your path.
@@ -42,3 +47,4 @@ This simple script asks for your server password at the beginning. It then uses 
 
 1. It is tedious
 2. I wrote this script to automate things at the office. But to also ensure that employees can orchestrate deployments without needing to access or even know the production server passwords. All I/or someone else authorized is enter the password once and that's it. 
+
