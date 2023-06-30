@@ -37,7 +37,9 @@ export PATH="/your/path/pm2-deploy/bin:$PATH"
 
 Now go to your project and create a **Deployment Configuration** file as detailed [here](https://pm2.keymetrics.io/docs/usage/deployment/) and [here](https://pm2.io/docs/runtime/guide/easy-deploy-with-ssh/).
 
-While in the project folder where your `ecosystem.config.js` is saved, run `pm2-deploy`
+While in the project folder where your `ecosystem.config.js` is saved, run `pm2-deploy`.
+
+Note, you can also run `pm2-deploy --setup` if the deployment is new and you would like to run `pm2 deploy production setup` first before `pm2 deploy production`. 
 
 ## So what does the script do?
 
@@ -51,4 +53,5 @@ This simple script asks for your server password at the beginning. It then uses 
 ## Gotchas!
 
 This script does not has a `--force` flag like you would do with `pm2 deploy production --force` to avoid breaking tour production server. Also it is expected that you will have **pre-commit hooks** to do all the necessary linting and testing. Therefore by the time you run this script you have committed and pushed your changes!
+
 

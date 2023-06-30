@@ -1,8 +1,13 @@
 #!/usr/bin/bash
 
 
+# Get User pass
 read -sp 'Production Server(s) Password: ' passphrase
 export PASSPHRASE=$passphrase
 
-expect "$(dirname "$0")/production-setup.exp"
+# Run Setup
+if [[ "$1" == '--setup' ]] ; then
+  expect "$(dirname "$0")/production-setup.exp"
+fi
+
 expect "$(dirname "$0")/production-deploy.exp"
