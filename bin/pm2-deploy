@@ -1,7 +1,11 @@
 #!/usr/bin/bash
 
+
+SCRIPT_DIR="$(dirname "$(readlink "$0")")"
+
+
 echo
-echo pm2-deply will run:
+echo pm2-deploy will run:
 
 if [[ "$1" == '--setup' ]]; then
     echo -e "    pm2 deploy production setup\n    pm2 deploy production"
@@ -17,7 +21,7 @@ export PASSPHRASE=$passphrase
 
 # Run Setup
 if [[ "$1" == '--setup' ]]; then
-    expect "$(dirname "$0")/production-setup.exp"
+    expect "$SCRIPT_DIR/production-setup.exp"
 fi
 
-expect "$(dirname "$0")/production-deploy.exp"
+expect "$SCRIPT_DIR/production-deploy.exp"
