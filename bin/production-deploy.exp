@@ -51,6 +51,12 @@ while {$i<50} {
             send -- "$password\n"
             incr i
         }
+
+        # save auth key
+        "*key is not known*" {
+            #Hand control back to user
+            interact -o "\r" exp_continue
+        }
     }        
 
 }
